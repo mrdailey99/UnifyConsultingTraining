@@ -1,0 +1,9 @@
+.provarCaches/
+.metadata/
+.chromeProfiles/
+.testCycles/
+**/*.zip
+**/ANT/Results/
+**/ANT/Results*
+**/*.pdf
+**/*.class
