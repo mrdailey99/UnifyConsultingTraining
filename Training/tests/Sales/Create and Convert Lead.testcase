@@ -45,6 +45,16 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="27" title="teresa steps">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">teresa steps</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="28"/>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="13" title="Create and Convert Lead">
       <arguments>
         <argument id="description">
