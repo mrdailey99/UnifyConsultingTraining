@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="8">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -336,7 +336,7 @@
       <clauses>
         <clause name="hidden" testItemId="23">
           <steps>
-            <caseCall testCaseId="f4d10ddc-9dfd-43b7-b8ee-ad731d248660" testCasePath="tests/JIRA Integration/Create a JIRA Bug ticket.testcase" testItemId="24">
+            <caseCall testCaseId="f4d10ddc-9dfd-43b7-b8ee-ad731d248660" testCasePath="tests/JIRA Integration/Create a JIRA Bug.testcase" testItemId="24">
               <arguments>
                 <argument id="JIRATicketDescription">
                   <value class="funcCall" id="TestCaseErrors"/>
