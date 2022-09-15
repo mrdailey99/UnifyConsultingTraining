@@ -63,6 +63,14 @@
             </connectionUrl>
           </connectionUrls>
         </connection>
+        <connection id="bb6676b5-7a35-4836-80e2-b4bd3701686b" name="JIRATest">
+          <summary>Testing REST API</summary>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="68c8dd75-3c67-4ac8-bdd4-938d8412ed54" url="restservice:url=https://unify-provartraining.atlassian.net;user=colin.willis@unifyconsulting.com;password={password};authenticationType=BASIC_AUTHENTICATION">
+              <customHeaders/>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
       </connections>
     </connectionClass>
   </connectionClasses>

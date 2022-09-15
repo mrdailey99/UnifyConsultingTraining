@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -175,7 +175,7 @@
                         <argument id="contactId"/>
                         <argument id="ownerId"/>
                         <argument id="convertedStatus">
-                          <value class="value" valueClass="string">Closed - Converted</value>
+                          <value class="value" valueClass="string">Qualified</value>
                         </argument>
                         <argument id="createOpportunity">
                           <value class="value" valueClass="boolean">true</value>
