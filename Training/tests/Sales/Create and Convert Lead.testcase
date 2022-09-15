@@ -2,6 +2,16 @@
 <testCase id="1">
   <summary/>
   <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="25" title="Creat">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Creat</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="26"/>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
