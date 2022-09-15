@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="UAT">
   <title>/Training/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -8,6 +8,11 @@
   <sourcePath>src</sourcePath>
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
+  <environments>
+    <environment name="UAT">
+      <summary/>
+    </environment>
+  </environments>
   <variables>
     <testVariable name="SlackFileUploadToken">
       <valueType class="textType">
@@ -59,6 +64,14 @@
           <summary/>
           <connectionUrls>
             <connectionUrl secureStorageNodeId="1ae6702e-5194-4ee8-bcf7-b5b4aa25b8ed" url="restservice:url=https://unify-provartraining.atlassian.net;user=michael.dailey@provartesting.com;password={password};authenticationType=BASIC_AUTHENTICATION">
+              <customHeaders/>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+        <connection id="b9827dc7-b60f-4ec9-9739-09ea3f754286" name="JIRATest">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="c08ab476-0c52-403a-b3c6-9d4b94be7db7" url="restservice:url=https://unify-provartraining.atlassian.net;user=michael.dailey@provartesting.com;password={password};authenticationType=BASIC_AUTHENTICATION">
               <customHeaders/>
             </connectionUrl>
           </connectionUrls>

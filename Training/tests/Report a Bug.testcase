@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="6" registryId="165aaab1-2037-4813-8d8e-78f633ac396f" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="16" title="Split: {TestCaseName()}=&gt;.=&gt;TestName">
+      <arguments>
+        <argument id="input">
+          <value class="funcCall" id="TestCaseName"/>
+        </argument>
+        <argument id="separator">
+          <value class="value" valueClass="string">.</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">TestName</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="6" title="Set Values: JIRATicketSummary">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">JIRATicketSummary</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="compound">
+                  <parts>
+                    <value valueClass="string">Provar: </value>
+                    <variable>
+                      <path element="TestName">
+                        <filter class="index">
+                          <index valueClass="decimal">0</index>
+                        </filter>
+                      </path>
+                    </variable>
+                    <value valueClass="string"> Error</value>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="8" title="If: {JIRATicketDescription != null}">
+      <arguments>
+        <argument id="condition">
+          <value class="ne">
+            <lhs class="variable">
+              <path element="JIRATicketDescription"/>
+            </lhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="9">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="1" title="Web Connect: JIRATest">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">JIRATest</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">JIRATest</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="5" title="Web Request (REST): ⇒RestResponse">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">JIRATest</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=JSON"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">RestResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">RestResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="value" valueClass="string">/rest/api/2/issue/</value>
+                </argument>
+                <argument id="restRequestHeader"/>
+                <argument id="restBody">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">{\n    "fields": {\n       "project":\n       {\n          "key": "PRO"\n       },\n       "summary": "</value>
+                      <variable>
+                        <path element="JIRATicketSummary"/>
+                      </variable>
+                      <value valueClass="string">",\n       "description": "</value>
+                      <variable>
+                        <path element="JIRATicketDescription"/>
+                      </variable>
+                      <value valueClass="string">",\n       "issuetype": {\n          "name": "Bug"\n       },\n       "parent":\n       {\n       \t    "key": "PRO-4"\n       }\n   }\n}</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restAttachments">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="body" name="restBody" title="Body">
+                  <type>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="mimeType">application/json</valueConstraint>
+                      </constraints>
+                    </textType>
+                  </type>
+                </apiParam>
+                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                  <childParams>
+                    <apiParam name="name" title="Attachment Name"/>
+                    <apiParam name="fileName" title="File Name"/>
+                    <apiParam name="contentType" title="Content Type">
+                      <type>
+                        <choiceType>
+                          <constraints>
+                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                          </constraints>
+                        </choiceType>
+                      </type>
+                    </apiParam>
+                    <apiParam name="data" title="Data">
+                      <type>
+                        <urlType/>
+                      </type>
+                    </apiParam>
+                    <apiParam name="base64Encode" title="Encode As Base64">
+                      <type>
+                        <booleanType/>
+                      </type>
+                    </apiParam>
+                  </childParams>
+                </compoundApiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <params>
+    <param name="JIRATicketDescription" title="JIRA Ticket Description">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="JIRATicketDescription">
+      <value class="funcCall" id="TestRunErrors"/>
+    </argument>
+  </args>
+</testCase>
