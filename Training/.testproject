@@ -25,8 +25,9 @@
     <connectionClass name="sf">
       <connections>
         <connection name="Admin">
+          <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="b9a36805-9316-4271-9496-28edeeeaa631" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl secureStorageNodeId="b9a36805-9316-4271-9496-28edeeeaa631" url="sf:user=unify@provartesting.com;password={password};environment=SANDBOX;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
